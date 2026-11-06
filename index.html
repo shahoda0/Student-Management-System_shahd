@@ -1,0 +1,209 @@
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Management System</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+
+        body {
+            background: #f4f6fb;
+            color: #26324a;
+            padding: 30px;
+        }
+
+        .container {
+            max-width: 1100px;
+            margin: auto;
+        }
+
+        header {
+            background: #263b68;
+            color: white;
+            padding: 30px;
+            border-radius: 15px;
+            margin-bottom: 25px;
+        }
+
+        header h1 {
+            margin-bottom: 10px;
+        }
+
+        .stats {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 15px;
+            margin-bottom: 25px;
+        }
+
+        .card, .section {
+            background: white;
+            padding: 22px;
+            border-radius: 12px;
+            box-shadow: 0 3px 12px #0000000b;
+        }
+
+        .card h3 {
+            color: #64748b;
+            font-size: 15px;
+        }
+
+        .card p {
+            font-size: 28px;
+            font-weight: bold;
+            margin-top: 12px;
+            color: #263b68;
+        }
+
+        .section {
+            margin-bottom: 25px;
+        }
+
+        .section h2 {
+            margin-bottom: 20px;
+        }
+
+        .form-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 15px;
+        }
+
+        input {
+            width: 100%;
+            padding: 13px;
+            border: 1px solid #dce2ed;
+            border-radius: 8px;
+            font-size: 15px;
+        }
+
+        button {
+            background: #3457a4;
+            color: white;
+            border: none;
+            padding: 13px 22px;
+            border-radius: 8px;
+            cursor: pointer;
+            margin-top: 15px;
+            font-size: 15px;
+        }
+
+        button:hover {
+            background: #263b68;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            min-width: 600px;
+        }
+
+        th, td {
+            padding: 14px;
+            text-align: center;
+            border-bottom: 1px solid #eee;
+        }
+
+        th {
+            background: #eef2fa;
+            color: #263b68;
+        }
+
+        .table-container {
+            overflow-x: auto;
+        }
+
+        @media(max-width: 650px) {
+            body { padding: 15px; }
+            .stats { grid-template-columns: 1fr; }
+            .form-grid { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="container">
+
+    <header>
+        <h1>Student Management System</h1>
+        <p>Manage students, grades and academic performance</p>
+    </header>
+
+    <div class="stats">
+        <div class="card">
+            <h3>Total Students</h3>
+            <p id="totalStudents">0</p>
+        </div>
+
+        <div class="card">
+            <h3>Average Grade</h3>
+            <p id="averageGrade">0</p>
+        </div>
+
+        <div class="card">
+            <h3>Successful Students</h3>
+            <p id="successfulStudents">0</p>
+        </div>
+    </div>
+
+    <div class="section">
+        <h2>Add New Student</h2>
+
+        <div class="form-grid">
+            <input type="text" id="studentName" placeholder="Student Name">
+            <input type="number" id="studentId" placeholder="Student ID">
+            <input type="number" id="grade1" placeholder="Grade 1">
+            <input type="number" id="grade2" placeholder="Grade 2">
+            <input type="number" id="grade3" placeholder="Grade 3">
+        </div>
+
+        <button id="addStudentBtn">Add Student</button>
+    </div>
+
+    <div class="section">
+        <h2>Students List</h2>
+
+        <div class="table-container">
+            <table>
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Name</th>
+                        <th>Grade 1</th>
+                        <th>Grade 2</th>
+                        <th>Grade 3</th>
+                        <th>Average</th>
+                        <th>Grade</th>
+                    </tr>
+                </thead>
+
+                <tbody id="studentsTable">
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <div class="section">
+        <h2>Academic Reports</h2>
+        <div id="reports">
+            Reports will appear here.
+        </div>
+    </div>
+
+</div>
+
+<script src="script.js"></script>
+
+</body>
+</html>
+
